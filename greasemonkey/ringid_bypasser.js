@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @downloadURL  https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/ringid_bypasser.js
 // @updateURL    https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/ringid_bypasser.js
-// @version      0.2
+// @version      0.3
 // @description  quickbypass for the website
 // @author       orangesoda
 // @match        https://ringid.tech/*
@@ -24,7 +24,7 @@
                 var link = new URL(url.value)
                 var api = "https://api.bayfiles.com/v2/file"+link.pathname+"/info"
                 console.log(api)
-                //Pending API implementation 
+                //Pending API implementation so that we only get the download url
 
             }
         }

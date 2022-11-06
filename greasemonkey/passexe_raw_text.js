@@ -1,17 +1,17 @@
 // ==UserScript==
-// @name         pastexe.com bypass
+// @name         Text editor
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  Script to just view the text content of the links
 // @author       You
 // @match        https://pastexe.com/*
+// @match        https://justetext.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=pastexe.com
 // @grant        none
 // ==/UserScript==
 
 (function() {
     window.stop();
-    const PASSWD = '<password>';
     var myHeaders = new Headers();
     var requestOptions = {
         method: 'POST',
@@ -21,7 +21,7 @@
     let file = window.location.pathname.substring(1);
 
 
-    fetch(window.location.origin+"/get-paste?slug="+ file +"&password="+ PASSWD, requestOptions)
+    fetch(window.location.origin+"/get-paste?slug="+ file +"&password=1020", requestOptions)
         .then(response => response.text())
         .then(result => {
         var data = JSON.parse(result)

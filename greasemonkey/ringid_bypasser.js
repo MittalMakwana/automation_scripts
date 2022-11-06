@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @downloadURL  https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/ringid_bypasser.js
 // @updateURL    https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/ringid_bypasser.js
-// @version      0.1
+// @version      0.2
 // @description  quickbypass for the website
 // @author       orangesoda
 // @match        https://ringid.tech/*
@@ -24,7 +24,7 @@
                 var link = new URL(url.value)
                 var api = "https://api.bayfiles.com/v2/file"+link.pathname+"/info"
                 console.log(api)
-                //To do add a fetch method to get the bayfile api details, current it is blocked and tells use to use mode no-cours but returns empty result
+                //Pending API implementation 
 
             }
         }

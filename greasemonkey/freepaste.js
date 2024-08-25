@@ -3,12 +3,12 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  try to take over the world!
-// @author       You
+// @author       Orangesoda
 // @match        https://freepaste.link/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=freepaste.link
 // @grant        GM_addStyle
-// @updateURL    file:///Users/mittalmak/dev/gm_script/freepaste.js
-// @downloadURL  file:///Users/mittalmak/dev/gm_script/freepaste.js
+// @updateURL    https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/freepaste.js
+// @downloadURL  https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/freepaste.js
 // ==/UserScript==
 
 (function() {

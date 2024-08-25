@@ -7,6 +7,8 @@
 // @match        https://mega.nz/folder/*
 // @icon         https://www.google.com/s2/favicons?domain=mega.nz
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/mega-nz.js
+// @downloadURL  https://raw.githubusercontent.com/MittalMakwana/automation_scripts/master/greasemonkey/mega-nz.js
 // ==/UserScript==
 
 (function () {

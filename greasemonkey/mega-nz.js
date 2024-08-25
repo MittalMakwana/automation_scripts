@@ -11,12 +11,9 @@
 
 (function () {
     "use strict";
-    const AUTH_TOKEN = 'TOKEN';
-    const CHECK_DIR_ID = 'Folder ID';
-    const BOOKMARK_TAGS = ['tag1', 'tag2'];
-
-
-    var listViewBtn, blockViewBtn;
+    const AUTH_TOKEN = 'dccba67d-e10a-4db0-9148-5229dc7c6684';
+    const CHECK_DIR_ID = '28212003'; // Collection id to store the Bookmark
+    const BOOKMARK_TAGS = ['xxx', 'mega'];
 
     const createBtn = (btnName, id) => {
         var button = document.createElement("BUTTON");
@@ -25,22 +22,30 @@
         return button;
     };
 
-    const checkDataLoaded = () => {
-        listViewBtn = document.getElementsByClassName("listing-view")[0];
-        blockViewBtn = document.getElementsByClassName("block-view")[0];
+    const insertBtn = () => {
+        clearInterval(intervalId);
+        var parentNode = document.getElementsByClassName("fm-breadcrumbs-wrapper")[0];
+        var childNode = document.getElementsByClassName("fm-breadcrumbs-block")[0];
+        var bookMarkBtn = createBtn("Bookmark This", "bookmark");
+        parentNode.insertBefore(bookMarkBtn, childNode);
+        checkBookMark();
+        bookMarkBtn.onclick = addBookmark;
     };
 
-    const sortBySize = () => {
-        listViewBtn.click();
-        console.log("List View btn Clicked");
-        var sizeBtn = document.getElementsByClassName("size")[0];
-        setTimeout(() => {
-            sizeBtn.click();
-            sizeBtn.click();
-        }, 500);
-        blockViewBtn.click();
-        console.log("Block View btn Clicked");
+    const checkDataLoaded = () => {
+        var listViewBtn = document.getElementsByClassName("listing-view")[0];
+        var blockViewBtn = document.getElementsByClassName("block-view")[0];
+        if (listViewBtn && blockViewBtn) {
+            clearInterval(intervalId);
+            return true;
+        }
     };
+
+    let intervalId = setInterval(() => {
+        if (checkDataLoaded() && !document.getElementById("bookmark")) {
+            insertBtn();
+        }
+    }, 1000);
 
     const addBookmark = () => {
 
@@ -103,29 +108,6 @@
                 document.getElementById("bookmark").innerText="Already BookMark";
                 document.getElementById("bookmark").disabled = true;
             }
-        })
-            .catch(error => console.log('error', error));
-    };
-
-    let intervalId = setInterval(() => {
-        checkDataLoaded();
-
-        if (listViewBtn && blockViewBtn) {
-            insertBtn();
-        }
-    }, 1000);
-
-    const insertBtn = () => {
-        clearInterval(intervalId);
-
-        var parentNode = document.getElementsByClassName("fm-breadcrumbs-wrapper")[0];
-        var childNode = document.getElementsByClassName("fm-breadcrumbs-block")[0];
-        var btn = createBtn("Sort_By_Size", "sortbysize");
-        var bookMarkBtn = createBtn("Bookmark This", "bookmark");
-        parentNode.insertBefore(btn, childNode);
-        parentNode.insertBefore(bookMarkBtn, btn);
-        checkBookMark();
-        btn.onclick = sortBySize;
-        bookMarkBtn.onclick = addBookmark;
+        }).catch(error => console.log('error', error));
     };
 })();

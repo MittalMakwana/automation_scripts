@@ -13,6 +13,7 @@ handlers = [
 logging.basicConfig(level=logging.DEBUG,handlers=handlers, format="%(asctime)s;%(levelname)s;%(message)s")
 
 
+# The API key is for the movie db api
 API_KEY = '428798c163a4628d3ce00c9964f304fc'
 VIDEO_DRIVE = '/Volumes/SSD1/Videos/'
 TV_SHOW_FOLDER = "/Volumes/SSD1/Videos/TV_Shows/"

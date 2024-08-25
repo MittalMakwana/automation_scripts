@@ -1,3 +1,7 @@
+/*
+TODO: Add support for https://bypass.pm/bypass2?url=*
+*/
+
 const browsing = {
   name: "Brave Browser",
   profile: "Profile 1",
@@ -18,6 +22,7 @@ const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
 const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech).*$/;
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
+
 
 module.exports = {
   defaultBrowser: "Google Chrome",

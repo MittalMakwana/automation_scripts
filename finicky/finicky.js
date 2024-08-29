@@ -11,7 +11,7 @@ const safari = {
   name: "Safari",
 };
 
-var debug = true;
+var debug = false;
 
 // Define regular expressions for URLs
 const linkHubUrls = /^https?:\/\/(linkvertise\.com|(link-hub|link-center|link-target|direct-link)\.net)\/.*$/;
@@ -22,6 +22,7 @@ const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
 const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech).*$/;
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
+const elitepacks = /^https?:\/\/(members\.elitepacks\.vip)(.*$)/;
 
 
 module.exports = {
@@ -127,6 +128,11 @@ module.exports = {
     {
       // Matches URLs from pastelines.com
       match: pastelinesUrls,
+      browser: browsing,
+    },
+    {
+      // Matches URLs from members.elitepacks.vip
+      match: elitepacks,
       browser: browsing,
     },
   ],

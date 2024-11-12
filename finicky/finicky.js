@@ -16,17 +16,16 @@ var debug = false;
 // Define regular expressions for URLs
 const linkHubUrls = /^https?:\/\/(linkvertise\.com|(link-hub|link-center|link-target|direct-link)\.net)\/.*$/;
 const gohubUrls = /^https:\/\/(gohub.fpc.oo.gd|fpc.oo.gd|binb.me|go.fpc.oo.gd|exe.io|cuty.io|paster.so|bunkr.sk).*$/;
-const megadropzUrls = /^https?:\/\/(www\.)?megadropz\.com\/.*$/;
-const leakPragmaticUrls = /^https:\/\/leak-pragmatic\.com\/.*$/;
+const megadropz = /^https?:\/\/(www\.)?(megadropz\.com|leak-pragmatic\.com|free-leaks\.com)\/.*$/;
 const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
-const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech).*$/;
+const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech|terafileshare\.com).*$/;
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
 const elitepacks = /^https?:\/\/(members\.elitepacks\.vip)(.*$)/;
 
 
 module.exports = {
-  defaultBrowser: "Google Chrome",
+  defaultBrowser: "Safari",
 
   rewrite: [
      {
@@ -59,7 +58,7 @@ module.exports = {
       },
       {
         match: ({ url }) => {
-          const pattern = /teraboxlink|teraboxapp|1024tera/
+          const pattern = /teraboxlink|teraboxapp|1024tera|terafileshare/
           if (pattern.test(url.host)) {
             return true;
           }
@@ -107,8 +106,8 @@ module.exports = {
     },
     {
       // Matches URLs from megadropz.com and leak-pragmatic.com
-      match: [megadropzUrls, leakPragmaticUrls],
-      browser: safari,
+      match: megadropz,
+      browser: browsing,
     },
     {
       // Matches URLs from mega.nz

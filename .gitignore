@@ -1,0 +1,24 @@
+# Python
+*.pyc
+__pycache__/
+
+# Flask
+instance/
+.env
+
+# IDE/Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Dependency directories
+venv/
+env/
+
+# Static files
+*.DS_Store
+static/.output/

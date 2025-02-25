@@ -15,7 +15,7 @@ var debug = false;
 
 // Define regular expressions for URLs
 const linkHubUrls = /^https?:\/\/(linkvertise\.com|(link-hub|link-center|link-target|direct-link)\.net)\/.*$/;
-const gohubUrls = /^https:\/\/(gohub.fpc.oo.gd|fpc.oo.gd|binb.me|go.fpc.oo.gd|exe.io|cuty.io|paster.so|bunkr.sk).*$/;
+const gohubUrls = /^https:\/\/(gohub.fpc.oo.gd|fpc.oo.gd|binb.me|go.fpc.oo.gd|exe.io|cuty.io|paster.so|bunkr.sk|ofleaks.pro).*$/;
 const megadropz = /^https?:\/\/(www\.)?(megadropz\.com|leak-pragmatic\.com|free-leaks\.com)\/.*$/;
 const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
@@ -23,6 +23,7 @@ const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabo
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
 const pastemegaUrls = /^https?:\/\/(www\.)?pastemega\.com\/.*$/;
 const elitepacks = /^https?:\/\/(members\.elitepacks\.vip)(.*$)/;
+const ofUrls = /^https?:\/\/(www)?\.(ofleaks.pro|onlyfans.com)\/(.*$)/;
 
 
 module.exports = {

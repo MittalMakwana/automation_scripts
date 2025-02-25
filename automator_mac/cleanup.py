@@ -44,6 +44,7 @@ def cleanup(directory, file_types, flatten, dry_run=False):
         'mac': ['._*', '.DS_Store'],
         'temp': ['*.tmp', '*.temp'],
         'log': ['*.log'],
+        'refresh': ['._*', '.DS_Store'] + ['*.tmp', '*.temp'] + ['*.log'] + ['*.crawljob.*', '*.torrent']
         # Add more predefined patterns here
     }
 

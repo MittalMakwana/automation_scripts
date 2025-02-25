@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>GroupName</key>
+	<string>staff</string>
+	<key>InitGroups</key>
+	<true/>
+	<key>Label</key>
+	<string>local.plextraktsync.job</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/mittalmak/.local/bin/plextraktsync</string>
+		<string>sync</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/Users/mittalmak/.log/local.plextraktsync.job.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/Users/mittalmak/.log/local.plextraktsync.job.stdout</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>0</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+	<key>UserName</key>
+	<string>mittalmak</string>
+</dict>
+</plist>

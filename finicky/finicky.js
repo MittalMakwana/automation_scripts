@@ -19,7 +19,7 @@ const gohubUrls = /^https:\/\/(gohub.fpc.oo.gd|fpc.oo.gd|binb.me|go.fpc.oo.gd|ex
 const megadropz = /^https?:\/\/(www\.)?(megadropz\.com|leak-pragmatic\.com|free-leaks\.com)\/.*$/;
 const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
-const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech|terafileshare\.com).*$/;
+const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech|player\.terabox\.tech|terafileshare\.com).*$/;
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
 const pastemegaUrls = /^https?:\/\/(www\.)?pastemega\.com\/.*$/;
 const elitepacks = /^https?:\/\/(members\.elitepacks\.vip)(.*$)/;
@@ -30,51 +30,50 @@ module.exports = {
   defaultBrowser: "Safari",
 
   rewrite: [
-     {
-        match: (all) => {
-          if (debug) {
-            finicky.log(JSON.stringify(all, null, 2));
-          }
+    {
+      match: (all) => {
+        if (debug) {
+          finicky.log(JSON.stringify(all, null, 2));
+        }
+        return true;
+      }, // Apply the rewrite to all incoming URLs
+      url: ({ url }) => {
+        // Define prefixes of query parameters to remove
+        const removeKeysStartingWith = ["utm_", "uta_"];
+        // Define specific query parameters to remove
+        const removeKeys = ["fbclid", "gclid"];
+        const search = url.search
+          .split("&")
+          .map((param) => param.split("="))
+          .filter(([key]) => 
+            !removeKeysStartingWith.some((prefix) => key.startsWith(prefix))
+          )
+          .filter(([key]) => 
+            !removeKeys.includes(key)
+          );    
+        return {
+          ...url,
+          search: search.map((param) => param.join("=")).join("&"),
+        };
+      },
+    },
+    {
+      match: ({ url }) => {
+        const pattern = /teraboxlink|teraboxapp|1024tera|terafileshare/
+        if (pattern.test(url.host)) {
           return true;
-        }, // Apply the rewrite to all incoming URLs
-        url: ({ url }) => {
-          // Define prefixes of query parameters to remove
-          const removeKeysStartingWith = ["utm_", "uta_"];
-          // Define specific query parameters to remove
-          const removeKeys = ["fbclid", "gclid"];
-    
-          const search = url.search
-            .split("&")
-            .map((param) => param.split("="))
-            .filter(([key]) => 
-              !removeKeysStartingWith.some((prefix) => key.startsWith(prefix))
-            )
-            .filter(([key]) => 
-              !removeKeys.includes(key)
-            );    
-          return {
-            ...url,
-            search: search.map((param) => param.join("=")).join("&"),
-          };
-        },
+        }
       },
-      {
-        match: ({ url }) => {
-          const pattern = /teraboxlink|teraboxapp|1024tera|terafileshare/
-          if (pattern.test(url.host)) {
-            return true;
-          }
-        },
-        url: ({ url }) => {
-          const id = url.pathname.split("/").pop();
-          return {
-            ...url,
-            host: "terabox.tech",
-            pathname: `/`,
-            search: `url=${id}`,
-          };
-        },
+      url: ({ url }) => {
+        const id = url.pathname.split("/").pop();
+        return {
+          ...url,
+          host: "player.terabox.tech",
+          pathname: `/`,
+          search: `url=${id}`,
+        };
       },
+    },
   ],
 
   options: {

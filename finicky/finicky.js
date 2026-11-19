@@ -21,6 +21,7 @@ const megaUrls = /^https:\/\/(www\.)?mega\.nz\/.*$/;
 const rentryUrls = /^https:\/\/(www\.)?rentry.co\/.*$/;
 const teraboxUrls = /^https:\/\/(www\.)?(teraboxapp\.com|teraboxlink\.com|terabox\.tech|terafileshare\.com).*$/;
 const pastelinesUrls = /^https?:\/\/(www\.)?rentry\.co\/.*$/;
+const pastemegaUrls = /^https?:\/\/(www\.)?pastemega\.com\/.*$/;
 const elitepacks = /^https?:\/\/(members\.elitepacks\.vip)(.*$)/;
 
 
@@ -81,6 +82,11 @@ module.exports = {
   },
   handlers: [
     {
+      // Open every link launched from Discord in Brave
+      match: ({ opener }) => opener?.bundleId === "com.hnc.Discord",
+      browser: browsing,
+    },
+    {
       // Open links in Brave when the option key is pressed
       // Valid keys are: shift, option, command, control, capsLock, and function.
       // Please note that control usually opens a tooltip menu instead of visiting a link
@@ -127,6 +133,11 @@ module.exports = {
     {
       // Matches URLs from pastelines.com
       match: pastelinesUrls,
+      browser: browsing,
+    },
+    {
+      // Matches URLs from pastemega.com
+      match: pastemegaUrls,
       browser: browsing,
     },
     {
